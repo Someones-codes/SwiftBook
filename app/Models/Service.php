@@ -22,9 +22,8 @@ class Service extends Model
         'price'  => 'decimal:2',
     ];
 
-    // Will be used once Appointments exist (Milestone 5)
-    // public function appointments()
-    // {
-    //     return $this->hasMany(Appointment::class);
-    // }
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }

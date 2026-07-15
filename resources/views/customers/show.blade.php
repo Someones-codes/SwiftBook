@@ -39,10 +39,34 @@
                 </div>
             </div>
 
-            {{-- Appointment history — populated once Milestone 5 is built --}}
+            {{-- Appointment history --}}
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">Appointment History</h3>
-                <p class="text-sm text-gray-500">No appointment history yet — this fills in once the Appointment module (Milestone 5) is built.</p>
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Appointment History</h3>
+
+                @php
+                    $appointments = $customer->appointments()->with('service')->orderByDesc('appointment_date')->get();
+                @endphp
+
+                @if ($appointments->isEmpty())
+                    <p class="text-sm text-gray-500">No appointments yet for this customer.</p>
+                @else
+                    <ul class="divide-y divide-gray-100 text-sm">
+                        @foreach ($appointments as $appointment)
+                            <li class="py-2 flex justify-between items-center">
+                                <div>
+                                    <a href="{{ route('appointments.show', $appointment) }}" class="text-indigo-600 hover:underline">
+                                        {{ $appointment->service->name }}
+                                    </a>
+                                    <span class="text-gray-500">
+                                        — {{ $appointment->appointment_date->format('d M Y') }}
+                                        at {{ \Carbon\Carbon::parse($appointment->appointment_time)->format('H:i') }}
+                                    </span>
+                                </div>
+                                <span class="text-xs text-gray-500">{{ ucfirst(str_replace('_', ' ', $appointment->status)) }}</span>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
 
         </div>

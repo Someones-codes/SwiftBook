@@ -43,8 +43,10 @@
                        class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700">
                         + Service
                     </a>
-                    {{-- Appointment quick action will link here once Milestone 5 is built --}}
-                    {{-- <a href="{{ route('appointments.create') }}">+ Appointment</a> --}}
+                    <a href="{{ route('appointments.create') }}"
+                       class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700">
+                        + Appointment
+                    </a>
                 </div>
             </div>
 

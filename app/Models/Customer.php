@@ -26,9 +26,8 @@ class Customer extends Model
         );
     }
 
-    // Will be used once Appointments exist (Milestone 5)
-    // public function appointments()
-    // {
-    //     return $this->hasMany(Appointment::class);
-    // }
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }
