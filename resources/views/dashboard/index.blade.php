@@ -47,13 +47,22 @@
                        class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700">
                         + Appointment
                     </a>
+                    <a href="{{ route('reports.index') }}"
+                       class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest hover:bg-gray-100">
+                        View Reports
+                    </a>
                 </div>
             </div>
 
-            {{-- Calendar preview placeholder — populated in Milestone 6 --}}
+            {{-- Calendar preview --}}
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6 mt-8">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">Calendar Preview</h3>
-                <p class="text-sm text-gray-500">Calendar view coming in Milestone 6.</p>
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-lg font-semibold text-gray-800">Calendar</h3>
+                    <a href="{{ route('calendar.index') }}" class="text-sm text-indigo-600 hover:underline">
+                        Open full calendar &rarr;
+                    </a>
+                </div>
+                <p class="text-sm text-gray-500">See every appointment laid out by day, week, or month.</p>
             </div>
 
         </div>
